@@ -1,4 +1,4 @@
-A one-liner phrase describing this project or app
+
 
 ## About
 
@@ -26,7 +26,7 @@ You should have **Python 3.5+** and **git** installed.
 
 1. Clone the repo you've created from the template herein and change into the directory
 
-   `git clone <Your Repository>`
+   `git clone <https://github.com/Ingressive-for-Good/ace.git>`
 
 2. Change into repo directory
 
@@ -76,10 +76,10 @@ All tests should be written in the `tests` folder. tests/test_src.py is a sample
 - Install dev dependencies:
   `poetry add --dev <dev-dependency>`
 - Run your project:
-  `poetry run app`
+  `python manage.py runserver`
 
 ## Authors
-
+Victor Joseph
 List the team behind this project. Their names linked to their Github, LinkedIn, or Twitter accounts should siffice. Ok to signify the role they play in the project, including the TTL and mentor
 
 ## Contributing
@@ -94,7 +94,7 @@ First, you can send a mail to community@ingressive.org to indicate your interest
 ## Acknowledgements
 
 Did you use someone else’s code?
-Do you want to thank someone explicitly?
+IngressiveForGood, Hactoberfest
 Did someone’s blog post spark off a wonderful idea or give you a solution to nagging problem?
 
 It's powerful to always give credit.
