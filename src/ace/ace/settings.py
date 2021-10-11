@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-z*)_ul1+&a#7+5fmen=7o96d344$hw^qxwbimq)v4l-n--zws)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'chat.apps.ChatConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
