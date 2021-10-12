@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'chat.apps.ChatConfig',
+    'account.apps.AccountConfig',
+    'announcement.apps.announcementConfig',
+    'workspace.apps.workspaceConfig',
     'crispy_forms',
 ]
 
