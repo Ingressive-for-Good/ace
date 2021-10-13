@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from user.models import Profile
+from account.models import Profile
 from django.urls import reverse
 import datetime
 from workspace.models import Workspace
