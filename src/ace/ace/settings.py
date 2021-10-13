@@ -40,8 +40,8 @@ INSTALLED_APPS = [
 
     'chat.apps.ChatConfig',
     'account.apps.AccountConfig',
-    'announcement.apps.announcementConfig',
-    'workspace.apps.workspaceConfig',
+    'announcement.apps.AnnouncementConfig',
+    'workspace.apps.WorkspaceConfig',
     'crispy_forms',
 ]
 

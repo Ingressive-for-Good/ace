@@ -8,7 +8,6 @@ from django.utils import timezone
 
 class Profile(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
-	email = models.EmailField(max_length=255, unique=True)
 	profile_pic = models.ImageField(blank=True, null=True)
 	created_at = models.DateTimeField(default=timezone.now)
 
