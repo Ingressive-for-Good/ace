@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/
     font-awesome.min.css">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'message/home.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'account/style.css' %}">
 
 	<title>Msage</title>
 </head>
@@ -36,8 +36,8 @@
 	</div>
 	<h1 class="create2">Create Your Next Announcement Workspace With Ace</h1>
 	<p class="create3">Organize and structure your announcement. Get notifications on new announcement.</p>
-	<a class="account" style="" href="#">Create Account</a>
-	<a class="demo" style="" href="#">Demo</a>
+	<a class="account" style="" href="{% url 'signup' %}">Create Account</a>
+	<a class="demo" style="" href="login">Demo</a>
 
 	<h5 class="download">Download our mobile app</h5>
 	<p class="get">Get the mobile app on your phone for easy access and lots more</p>
