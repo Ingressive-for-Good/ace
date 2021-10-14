@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'account/style.css' %}">
 </head>
 <body>
     <div class="container">
+                  <h1><a href="{% url 'landing_page' %}">ACE</a></h1>
+
         <div class="row">
           <div class="col-lg">
             <form>
@@ -36,16 +39,15 @@
                 <label class="form-check-label" for="exampleCheck1">Remember me</label>
               </div>
               <button type="submit" class="btn btn-custom1 btn-primary">Sign Up</button>
-              <span>Have an account already? <a href="login.html" class="forgot-password">  Log In</p></span>
+              <span>Have an account already? <a href="{% url 'login' %}" class="forgot-password">  Log In</</a></span>
             </form>
           </div>
           <div class="col-md">
-            <img class="sign-up-image" src="sign-up-illustration.png" alt="illustration">
+            <img class="sign-up-image" src="/static/images/sign-up-illustration.png" alt="illustration">
           </div>
         </div>
       </div>
-        
-    
+      
     
       
       <script>

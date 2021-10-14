@@ -1,3 +1,5 @@
+{% load static %}
+
 <html>
 <head>
   <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
@@ -5,10 +7,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'account/style.css' %}">
 </head>
 <body>
   <div class="container">
+                <h1><a href="{% url 'landing_page' %}">ACE</a></h1>
+
     <div class="row">
       <div class="col-sm">
         <form>
@@ -29,11 +33,11 @@
           </div>
           <button type="submit" class="btn btn-primary btn-custom1">Login</button>
           <br>
-          <span>Don't have an account yet?<a href="signup.html" class="forgot-password">Sign Up</a></span>
+          <span>Don't have an account yet?<a href="{% url 'signup' %}" class="forgot-password">Sign Up</a></span>
         </form>
       </div>
       <div class="col-md">
-        <img src="login-illustration.png" alt="illustration">
+        <img src="/static/images/login-illustration.png" alt="illustration">
       </div>
     </div>
   </div>
