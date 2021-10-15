@@ -34,6 +34,7 @@ span {
     line-height: 25px;
 }
 #my-signin2 {
+    margin: auto;
     margin-top: 24px;
 }
 .forgot-password {
