@@ -1,6 +1,10 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+
+from .models import Profile
 
 
 def register(request):
@@ -50,6 +54,12 @@ def login(request):
             return redirect('login')
     else:
         return render(request,'account/login.html')
+
+
+@login_required
+def profile(request):
+    user_profile = Profile.objects.all()
+    return HttpResponse('Profile template does not exist yet...will update when the page has been completed..')
 
 
 
