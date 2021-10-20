@@ -1,7 +1,8 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+
+from .views import create_announcement
 
 
-# urlpatterns = [
-#     path('', home, name='landing_page'),
-# ]
+urlpatterns = [
+    path('new-announcement', create_announcement, name='new-announcement'),
+]
