@@ -1,3 +1,24 @@
-from django.shortcuts import render
+from django.http.response import HttpResponse
+from django.shortcuts import render, redirect
+from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 
+from .models import Announcement
+from announcement.models import Profile
 # Create your views here.
+
+@login_required
+def create_announcement(request):
+    if request.method == 'POST':
+        if request.POST['title'] and request.POST['content']:
+            announcement = Announcement()
+            announcement.title = request.POST['title']
+            announcement.content = request.POST['content']
+            # announcement.image = request.FILES['image']
+            announcement.author = Profile.objects.get(user=request.user)
+            announcement.save()
+            return redirect('landing_page')
+        else:
+            return HttpResponse('Error: Announcement creation failed')
+    else:
+        return render(request, 'announcement/create_announcement.html')

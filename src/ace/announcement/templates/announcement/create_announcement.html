@@ -1,0 +1,20 @@
+<h1>Create New Announcement</h1>
+
+<form method="POST" action="{% url 'new-announcement' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    Title:
+    <br />
+    <input type="text" name="title" />
+    <br />
+    Content:
+    <br />
+    <input type="textbox" name="content" />
+    <br />
+    Image:
+    <br />
+    <input type="file" name="image" />
+    <br />
+    <br />
+    <input class="btn btn-primary" type="submit" value="Create Announcement" />
+</form>

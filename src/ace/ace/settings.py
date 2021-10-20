@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'announcement.apps.AnnouncementConfig',
     'workspace.apps.WorkspaceConfig',
     'crispy_forms',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [

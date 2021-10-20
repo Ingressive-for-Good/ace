@@ -21,8 +21,8 @@ class Announcement(models.Model):
 	author = models.ForeignKey(Profile, on_delete= models.CASCADE)
 	announced = models.BooleanField(default=False)
 	approved = models.BooleanField(default=False)
-	image = models.ImageField(default='defaulst.png', null=True, blank=True)
-	workspace = models.ForeignKey(Workspace, on_delete= models.CASCADE)
+	image = models.ImageField(default='default.png', null=True, blank=True)
+	# workspace = models.ForeignKey(Workspace, on_delete= models.CASCADE, default='')
 
 	def __str__(self):
 		return self.title
