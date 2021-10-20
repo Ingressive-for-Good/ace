@@ -17,7 +17,7 @@ def create_announcement(request):
             # announcement.image = request.FILES['image']
             announcement.author = Profile.objects.get(user=request.user)
             announcement.save()
-            return redirect('landing_page')
+            return redirect('landing_page') #temporarily because there's no workspace page to redirect to yet
         else:
             return HttpResponse('Error: Announcement creation failed')
     else:
