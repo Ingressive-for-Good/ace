@@ -22,3 +22,11 @@ def create_announcement(request):
             return HttpResponse('Error: Announcement creation failed')
     else:
         return render(request, 'announcement/create_announcement.html')
+
+
+@login_required
+def delete_announcement(request, pk):
+    query = Announcement.objects.get(pk=pk)
+    query.delete()
+    return HttpResponse('Delete operation successful')
+    
