@@ -1,0 +1,61 @@
+{% extends "message/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+	<div class= 'content-section'>
+		<form action="" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			<fieldset class='form-group'>
+				<legend class= 'boarder-bottom mb=4'>New Workspace</legend>
+			<div>
+	      		<a class="btn info btn-sm mt-1 mb-1"href="{% url 'workspace-details' pk %}">Back</a>
+	      	</div>
+				{% if workspace.head == user %}
+					{{ form|crispy }}
+				{% endif %}
+				{% for object in objects %}
+					{% if object.approved == False %}
+					<div class="card">
+						<h3>{{ object.title }}</h3>
+						<p>{{ object.content }}</p>
+						<h6>written by {{ object.author.user }}</h6>
+						{% if workspace.head == user %}
+							<a style='position: absolute; margin-top: -18px; font-size: initial;' href="{% url 'approve' pk object.id %}">approve
+							<i class="fa fa-thumbs-up"></i>
+							</a>
+						{% endif %}
+					</div>
+					{% endif %}
+				{% endfor %}
+				<br>
+				<br>
+				<h2>Approved Announcements </h2>
+				{% for object in objects %}
+					{% if object.approved == True %}
+					<div class="card">
+						<h3>{{ object.title }}</h3>
+						<p>{{ object.content }}</p>
+						<h6>written by {{ object.author.user }}</h6>
+						{% if workspace.head == user %}
+							<a style='color: #bb4444; position: absolute; margin-top: -18px; font-size: initial;' href="{% url 'unapprove' pk object.id %}">unapprove
+							<i class="fa fa-thumbs-down"></i>
+							</a>
+						{% endif %}
+					</div>
+					{% endif %}
+				{% endfor %}
+			</fieldset>
+			<div class='form-group'>
+				<button class= 'btn- btn-outline-info' type="submit">Post</button>
+			</div>
+		</form>
+	      	<div>
+	      		<a class="btn info btn-sm mt-1 mb-1"href="{% url 'workspace-details' pk %}">Back</a>
+	      	</div>
+	</div>
+
+
+
+
+{% endblock content %}

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, View
 from .models import Workspace
+from .forms import ContributorForm
 
 # Create your views here.
 
@@ -66,3 +67,24 @@ class WorkspaceDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 		if user == post.head:
 			return True
 		return False
+
+class AddContributor(View):
+	def get(self, request, pk, *args, **kwargs):
+		form = ContributorForm()
+		context = {
+		'form':form,
+		}
+		return render(self.request, "workspace/contributor_form.html", context)
+
+	def post(self, request, pk, *args, **kwargs):
+		workspace =  get_object_or_404(Workspace, pk=self.kwargs.get('pk'))
+		form = ContributorForm(self.request.POST or None)
+		if form.is_valid():
+			email = form.cleaned_data.get('email')
+			contributor = get_object_or_404(Profile, email= email)
+			workspace.contributors.add(contributor)
+			workspace.save()
+			return redirect("workspace-details", pk)
+
+def About(request):
+	return render(request, 'workspace/about.html', {'title': 'About'})
