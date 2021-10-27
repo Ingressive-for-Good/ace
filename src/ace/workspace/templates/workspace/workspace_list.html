@@ -1,0 +1,32 @@
+{% block content %}
+  <a class="" href="{% url 'create-workspace' %}">New Workspace</a>
+  <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown link
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+  {% for workspace in workspaces %}
+    <div class="col-sm-6 col-lg-4 mb-4">
+      <div class="card">
+        <img class="rounded-circle article-img" src="{{ workspace.image.url }}">
+        <p><small class="tiny">{{ workspace.created_at | date:'F d, Y' }}</small></p>
+        <div class="card-body">
+          <a class="card-title" href="{{ workspace.get_absolute_url}}">{{ workspace.title }}</a>
+          <p class="card-text">{{ workspace.description}}</p>
+        </div>
+        {% if workspace.head == user %}
+        <div class="fa-icon">
+          <a href="#" class="w-button"><i class="fa fa-pencil fa-fw"></i></a>
+          <a href="#" class="w-button"><i class="fa fa-trash"></i></a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+{% endblock content %}
