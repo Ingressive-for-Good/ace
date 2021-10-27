@@ -15,7 +15,6 @@ def welcome(request):
 		return render(request, 'workspace/landing_page.html', {'title': 'Ace'})
 	else:
 		return redirect('user-workspace', username)
-	# return render(request, 'workspace/landing_page.html', {'title': 'Ace'})
 
 
 
