@@ -15,7 +15,7 @@ urlpatterns = [
 	path('unapprove/<int:pk>/<int:a_pk>/', Unapprove, name='unapprove'),
 	path('annoucement/<int:pk>/', AnnouncementListView.as_view(), name='announcements'),
 	path('new-announcement/<int:pk>/', AnnouncementCreateView.as_view(), name='new-announcement'),
-	path('message/<int:pk>/',AnnouncementDetailView.as_view(), name='message-details'),
-	path('message/<int:pk>/update', AnnouncementUpdateView.as_view(), name='message-update'),
+	path('message/<int:pk>/',AnnouncementDetailView.as_view(), name='annoucement-details'),
+	path('message/<int:pk>/update', AnnouncementUpdateView.as_view(), name='annoucement-update'),
 	path('delete-announcement/<int:pk>', AnnouncementDeleteView.as_view(), name='delete-announcement'),
 ]

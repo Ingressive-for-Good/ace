@@ -120,11 +120,6 @@ def Unapprove(request, pk, a_pk):
 
 
 
-
-
-
-
-
 # @login_required
 # def create_announcement(request):
 #     if request.method == 'POST':

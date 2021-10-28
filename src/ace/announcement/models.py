@@ -18,11 +18,11 @@ class Announcement(models.Model):
 	created_at = models.DateTimeField(default=timezone.now)
 	updated_at = models.DateTimeField(default=timezone.now)
 	expiry_date = models.DateTimeField(default=timezone.now() + datetime.timedelta(days=1))
-	author = models.ForeignKey(Profile, on_delete= models.CASCADE)
+	author = models.ForeignKey(User, on_delete= models.CASCADE)
 	announced = models.BooleanField(default=False)
 	approved = models.BooleanField(default=False)
-	image = models.ImageField(default='default.png', null=True, blank=True)
-	# workspace = models.ForeignKey(Workspace, on_delete= models.CASCADE, default='')
+	image = models.ImageField(null=True, blank=True)
+	workspace = models.ForeignKey(Workspace, on_delete= models.CASCADE)
 
 	def __str__(self):
 		return self.title
