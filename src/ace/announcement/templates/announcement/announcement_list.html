@@ -35,7 +35,7 @@
 					{% if object.approved == True %}
 					<div class="card">
 						<h3>{{ object.title }}</h3>
-						<p>{{ object.content }}</p>
+						<p>{{ object.content|safe }}</p>
 						<h6>written by {{ object.author.user }}</h6>
 						{% if workspace.head == user %}
 							<a style='color: #bb4444; position: absolute; margin-top: -18px; font-size: initial;' href="{% url 'unapprove' pk object.id %}">unapprove

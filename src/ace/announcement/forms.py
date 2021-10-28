@@ -8,4 +8,4 @@ class ApproveForm(forms.Form):
 class AnnouncementUpdateForm(forms.ModelForm):
 	class Meta:
 		model = Announcement
-		fields = ['title', 'content', 'image']
+		fields = ['title', 'message', 'image']

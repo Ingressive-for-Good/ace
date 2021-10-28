@@ -1,4 +1,6 @@
+{% extends "workspace/sidebar.html" %}
 {% load crispy_forms_tags %}
+{% block content %}
 
 	<div class= 'content-section'>
 		<form action="" method="POST" enctype="multipart/form-data">
@@ -6,6 +8,7 @@
 			<fieldset class='form-group'>
 				<legend class= 'boarder-bottom mb=4'>New Announcement</legend>
 				
+				{{ form.media }}
 				{{ form|crispy }}
 
 			</fieldset>
@@ -14,3 +17,4 @@
 			</div>
 		</form>	
 	</div>
+{% endblock content %}
