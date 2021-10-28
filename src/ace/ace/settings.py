@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'workspace.apps.WorkspaceConfig',
     'crispy_forms',
     'ckeditor',
+    'django_quill',
 ]
 
 MIDDLEWARE = [

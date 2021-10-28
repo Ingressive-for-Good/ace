@@ -43,10 +43,10 @@ class AnnouncementListView(View):
 
 class AnnouncementCreateView(LoginRequiredMixin, CreateView):
     model = Announcement
-    fields = ['title', 'content', 'image', 'expiry_date']
+    fields = ['title', 'message', 'image', 'expiry_date']
     
     def form_valid(self, form,):
-        form.instance.author = get_object_or_404(Profile, user=self.request.user)
+        form.instance.author = self.request.user
         form.instance.workspace = get_object_or_404(Workspace, pk=self.kwargs.get('pk'))
         return super().form_valid(form)
 

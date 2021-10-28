@@ -1,4 +1,5 @@
 {% extends "workspace/sidebar.html" %}
+
 {% block content %}
 
 <img class="" src="{{ object.image.url }}">
@@ -35,7 +36,7 @@
             <img class="card-img" src="{{ announcement.image.url }}">
             {% endif %}
             <p><small class="tiny heads">{{ announcement.author}}</small></p>
-            <p class="article-content">{{ announcement.content }}</p>
+            <p class="article-content">{{ announcement.message.html|safe }}</p>
             <p><small class="tiny">Will expire on {{ announcement.expiry_date | date:'F d, Y' }}</small></p>
         </div>
         {% endif %}

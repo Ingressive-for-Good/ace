@@ -5,7 +5,7 @@ from account.models import Profile
 from django.urls import reverse
 import datetime
 from workspace.models import Workspace
-from ckeditor.fields import RichTextField
+from django_quill.fields import QuillField
 
 # Create your models here.
 
@@ -14,7 +14,7 @@ class Announcement(models.Model):
 	"""model for Announcement"""
 	# slug = models.SlugField(unique=True, null=False)
 	title = models.CharField(max_length=150 )
-	content = RichTextField(max_length=10000)
+	message = QuillField()
 	created_at = models.DateTimeField(default=timezone.now)
 	updated_at = models.DateTimeField(default=timezone.now)
 	expiry_date = models.DateTimeField(default=timezone.now() + datetime.timedelta(days=1))
