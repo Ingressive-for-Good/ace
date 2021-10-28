@@ -1,11 +1,15 @@
 from django.http.response import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, View
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Announcement
 from announcement.models import Profile
+from .forms import ApproveForm, AnnouncementUpdateForm
+from workspace.models import Workspace
+from django.contrib import messages
+
 # Create your views here.
 
 
@@ -32,7 +36,6 @@ class AnnouncementListView(View):
                 approved = form.cleaned_data.get('approved')
                 announcement.approved = approved
                 announcement.save()
-                print(announcement.approved)
         messages.success(request, f'The Announcement has been updated!')
         return redirect('workspace-details', pk)
 
