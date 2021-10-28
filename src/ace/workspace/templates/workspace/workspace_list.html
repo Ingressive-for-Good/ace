@@ -1,6 +1,7 @@
+{% extends "workspace/sidebar.html" %}
 {% block content %}
   <a class="" href="{% url 'create-workspace' %}">New Workspace</a>
-  <div class="dropdown">
+<!--   <div class="dropdown">
   <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
     Dropdown link
   </a>
@@ -10,15 +11,15 @@
     <li><a class="dropdown-item" href="#">Another action</a></li>
     <li><a class="dropdown-item" href="#">Something else here</a></li>
   </ul>
-</div>
+</div> -->
   {% for workspace in workspaces %}
     <div class="col-sm-6 col-lg-4 mb-4">
       <div class="card">
-        <img class="rounded-circle article-img" src="{{ workspace.image.url }}">
+        <img class="workspace-img" src="{{ workspace.image.url }}">
         <p><small class="tiny">{{ workspace.created_at | date:'F d, Y' }}</small></p>
         <div class="card-body">
           <a class="card-title" href="{{ workspace.get_absolute_url}}">{{ workspace.title }}</a>
-          <p class="card-text">{{ workspace.description}}</p>
+          <p class="card-text">{{ workspace.description}} {{ workspace.image.url }}</p>
         </div>
         {% if workspace.head == user %}
         <div class="fa-icon">

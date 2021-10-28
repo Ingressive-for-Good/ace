@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+
 
 from .models import Profile
 
@@ -62,48 +64,6 @@ def profile(request):
     return HttpResponse('Profile template does not exist yet...will update when the page has been completed..')
 
 
-
-
-
-
-
-
-
-#This code doesn't work..
-
-# from .forms import UserRegistrationForm
-# from workspace.views import welcome
-# Create your views here.
-
-
-# def register(request):
-# 	if request.method == 'POST':
-# 		form = UserRegistrationForm(request.POST)
-# 		if form.is_valid():
-# 			form.save()
-# 			username = form.cleaned_data.get('username')
-# 			messages.success(request, f'Account created for {username}!')
-# 			return redirect('landing_page')
-
-# 	else:
-# 		form = UserRegistrationForm()
-# 	return render(request, 'account/signup.html', {'form' : form})
-
-
-# def login_request(request):
-# 	if request.method == 'POST':
-# 		form = AuthenticationForm(request, data=request.POST)
-# 		if form.is_valid():
-# 			username = form.cleaned_data.get('username')
-# 			password = form.cleaned_data.get('password')
-# 			user = authenticate(username=username, password=password)
-# 			if user is not None:
-# 				login(request, user)
-# 				messages.info(request, f'You are now logged in as {username}.')
-# 				return redirect('main:homepage')
-# 			else:
-# 				messages.error(request,'Invalid username or password.')
-# 		else:
-# 			messages.error(request,'Invalid username or password.')
-# 	form = AuthenticationForm()
-# 	return render(request, 'account/login.html', {'login_form':form})
+def logout_view(request):
+    logout(request)
+    return redirect('landing_page')
