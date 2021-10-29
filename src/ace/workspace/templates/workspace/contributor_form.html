@@ -1,4 +1,7 @@
+
+{% extends "workspace/sidebar.html" %}
 {% load crispy_forms_tags %}
+{% block content %}
 
 	<div class= 'content-section'>
 		<form action="" method="POST" enctype="multipart/form-data">
@@ -10,7 +13,9 @@
 
 			</fieldset>
 			<div class='form-group'>
-				<button class= 'btn- btn-outline-info' type="submit">Post</button>
+				<button class= 'btn- btn-outline-info' type="submit">Invite</button>
 			</div>
 		</form>	
 	</div>
+
+{% endblock content %}

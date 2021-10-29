@@ -7,7 +7,7 @@ from django.utils import timezone
 # Create your models here.
 
 class Profile(models.Model):
-	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	profile_pic = models.ImageField(blank=True, null=True)
 	created_at = models.DateTimeField(default=timezone.now)
 

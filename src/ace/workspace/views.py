@@ -81,10 +81,20 @@ class AddContributor(View):
 		form = ContributorForm(self.request.POST or None)
 		if form.is_valid():
 			email = form.cleaned_data.get('email')
-			contributor = get_object_or_404(Profile, email= email)
+			contributor = get_object_or_404(User, email= email)
 			workspace.contributors.add(contributor)
 			workspace.save()
 			return redirect("workspace-details", pk)
+
+def ContributorsListView(request, pk):
+	workspace = Workspace.objects.get(pk=pk)
+	contributors = workspace.contributors.all()
+	context = {
+		'head': workspace.head,
+		'contributors':contributors,
+		}
+	return render(request, 'workspace/contributors_list.html', context )
+
 
 def About(request):
 	return render(request, 'workspace/about.html', {'title': 'About'})

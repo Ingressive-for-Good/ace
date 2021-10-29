@@ -4,6 +4,7 @@ from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from .forms import UserUpdateForm, ProfileUpdateForm
 
 
 from .models import Profile
@@ -60,9 +61,24 @@ def login(request):
 
 @login_required
 def profile(request):
-    user_profile = Profile.objects.all()
-    return HttpResponse('Profile template does not exist yet...will update when the page has been completed..')
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        
+        if p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your Account has been updated!')
+            return redirect('profile')
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
 
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+    }
+    return render(request, 'account/profile.html', context)
 
 def logout_view(request):
     logout(request)
