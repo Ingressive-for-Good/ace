@@ -1,0 +1,7 @@
+{% extends "workspace/sidebar.html" %}
+{% block content %}
+  {% for contributor in contributors %}
+  <li>{{ head }} <span style="color: black;" class="badge badge-light">Admin</span></li>
+<li>{{ contributor }}</li>
+  {% endfor %}
+{% endblock content %}

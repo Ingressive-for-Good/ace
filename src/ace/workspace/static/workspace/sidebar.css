@@ -157,6 +157,13 @@ color: black;
     margin-bottom: 10px;
     background-color: #f1faf2;
 }
+.expanded {
+  position: absolute;
+  display: none;
+}
+.card.expanded .text-content {
+  transform: translateY(-15px);
+}
 @media screen and (min-width: 768px) {
     body {
         margin: calc(var(--header-height) + 1rem) 0 0 0;

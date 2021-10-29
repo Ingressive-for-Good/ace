@@ -15,7 +15,7 @@ class Workspace(models.Model):
 	updated_at = models.DateTimeField(default=timezone.now)
 	head = models.ForeignKey(User, on_delete= models.CASCADE)
 	image = models.ImageField(default='default.jpg', null=True, blank=True)
-	contributors = models.ManyToManyField(Profile, blank=True)
+	contributors = models.ManyToManyField(User, related_name='contributors', blank=True)
 
 	def __str__(self):
 		return self.title
