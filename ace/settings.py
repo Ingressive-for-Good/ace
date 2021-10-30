@@ -30,7 +30,7 @@ ALLOWED_HOSTS = ['*']
 
 
 AUTHENTICATION_BACKENDS = (
-    'account.backends.CommonAuthBackend',
+#     'account.backends.CommonAuthBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
