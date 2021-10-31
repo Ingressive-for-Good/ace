@@ -34,6 +34,8 @@ def register(request):
                     email=email,
                 )
                 user.save()
+                user=auth.authenticate(username=username,password=password)
+                auth.login(request,user)
                 messages.success(request,'User Created')
                 return redirect('landing_page')
         else:
