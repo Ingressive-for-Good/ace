@@ -184,6 +184,7 @@ padding-top: 11px;
   width: 405px;
     height: 216px;
     left: 35px;
+    font-size: 2.225rem;
 }
 .create3{
   left: 27px;
@@ -217,7 +218,13 @@ padding-top: 11px;
     left: 201px;
 }
 .link{
-  position: absolute;
+  position: inherit;
+}
+.headpic{
+  display: none;
+}
+.talk{
+  position: inherit;
 }
 }
 
