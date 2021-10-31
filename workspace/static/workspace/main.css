@@ -179,6 +179,47 @@ padding-top: 11px;
 }
 
 
+@media (max-width: 768px) {
+.create2{
+  width: 405px;
+    height: 216px;
+    left: 35px;
+}
+.create3{
+  left: 27px;
+  top: 294px;
+  font-size: 20px;
+  width: 345px;
+}
+.account{
+    width: 133px;
+    left: 32px;
+}
+.demo{
+  width: 133px;
+  left: 197px;
+}
+.download{
+  left: 34px;
+}
+.get{
+      width: 352px;
+    left: 30px;
+}
+.google{
+    width: 152px;
+    height: 53px;
+    left: 34px;
+}
+.apple{
+    width: 160px;
+    height: 54px;
+    left: 201px;
+}
+.link{
+  position: absolute;
+}
+}
 
 
 
